@@ -1,6 +1,5 @@
 let n = Number(prompt("enter the number you want to reverse : "));
 
-//133
 
 let reverseNumber = (n) => {
     let rev = 0
