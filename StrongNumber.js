@@ -1,17 +1,36 @@
-// Guess the Number Game
+let n = Number(prompt("enter the number : "));
 
-const actualNumber = Math.floor(Math.random()*100);
+123
 
-let guessedNumber = Number(prompt("Guess the number:"));
-
-while (guessedNumber !== actualNumber) {
-    if (guessedNumber < actualNumber) {
-        console.log("Your guessed number is smaller than the actual number.");
-    } else {
-        console.log("Your guessed number is greater than the actual number.");
+const isStrongNumber = (n) => {
+  let temp = n;
+    var sum = 0;
+    while(n>0){
+        let rem = n%10
+        let fact = 1;
+        for(let i=1;i<=rem;i++){
+            fact = fact*i;
+        }
+        sum = sum + fact;
+        n = Math.floor(n/10);
     }
-
-    guessedNumber = Number(prompt("Guess again:"));
+    if(sum === temp){
+        return true;
+    }
+    else if(sum !== temp){
+        return false
+    }
 }
 
-console.log("Congratulations! You guessed the correct number.");
+if(isNaN(n)){
+    console.log("enter a valid number : ");
+}
+else {
+    let StrongNumber = isStrongNumber(n);
+    if(StrongNumber){
+        console.log(`${n} is a strong Number`)
+    }
+    else{
+        console.log(`${n} is not a strong Number`)
+    }
+}
